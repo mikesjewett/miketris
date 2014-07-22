@@ -1,36 +1,35 @@
 //
-//  ZigZagTwoShape.swift
+//  SShape.swift
 //  Miketris
 //
-//  Created by Mike Jewett on 7/21/14.
+//  Created by Mike Jewett on 7/22/14.
 //  Copyright (c) 2014 Bloc. All rights reserved.
 //
 
-class ZigZagTwoShape:Shape {
+class SShape:Shape {
     /*
     
     Orientation 0
     
-    • | 0 |
-    | 2 | 1 |
-    | 3 |
+    | 0•|
+    | 1 | 2 |
+        | 3 |
     
     Orientation 90
     
-    | 0 | 1•|
-    | 2 | 3 |
+      • | 1 | 0 |
+    | 3 | 2 |
     
     Orientation 180
     
-    • | 0 |
-    | 2 | 1 |
-    | 3 |
+    | 0•|
+    | 1 | 2 |
+        | 3 |
     
     Orientation 270
     
-    | 0 | 1•|
-    | 2 | 3 |
-    
+      • | 1 | 0 |
+    | 3 | 2 |
     
     • marks the row/column indicator for the shape
     
@@ -38,10 +37,10 @@ class ZigZagTwoShape:Shape {
     
     override var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
     return [
-        Orientation.Zero:       [(1, 0), (1, 1), (0, 1), (0, 2)],
-        Orientation.Ninety:     [(-1,0), (0, 0), (0, 1), (1, 1)],
-        Orientation.OneEighty:  [(1, 0), (1, 1), (0, 1), (0, 2)],
-        Orientation.TwoSeventy: [(-1,0), (0, 0), (0, 1), (1, 1)]
+        Orientation.Zero:       [(0, 0), (0, 1), (1, 1), (1, 2)],
+        Orientation.Ninety:     [(2, 0), (1, 0), (1, 1), (0, 1)],
+        Orientation.OneEighty:  [(0, 0), (0, 1), (1, 1), (1, 2)],
+        Orientation.TwoSeventy: [(2, 0), (1, 0), (1, 1), (0, 1)]
         ]
     }
     

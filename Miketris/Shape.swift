@@ -41,7 +41,7 @@ enum Orientation: Int, Printable {
     }
 }
 
-// The number of total shape varieities
+// The number of total shape varieties
 let NumShapeTypes: UInt32 = 7
 
 // Shape indexes
@@ -62,6 +62,7 @@ class Shape: Hashable, Printable {
     var column, row:Int
     
     // Required Overrides
+
     // Subclasses must override this property
     var blockRowColumnPositions: [Orientation: Array<(columnDiff: Int, rowDiff: Int)>] {
     return [:]
@@ -81,7 +82,6 @@ class Shape: Hashable, Printable {
     
     // Hashable
     var hashValue:Int {
-    // #4
     return reduce(blocks, 0) { $0.hashValue ^ $1.hashValue }
     }
     
@@ -97,7 +97,7 @@ class Shape: Hashable, Printable {
         self.orientation = orientation
         initializeBlocks()
     }
-
+    
     convenience init(column:Int, row:Int) {
         self.init(column:column, row:row, color:BlockColor.random(), orientation:Orientation.random())
     }
@@ -151,13 +151,13 @@ class Shape: Hashable, Printable {
         case 2:
             return TShape(column:startingColumn, row:startingRow)
         case 3:
-            return LOneShape(column:startingColumn, row:startingRow)
+            return LShape(column:startingColumn, row:startingRow)
         case 4:
-            return ZigZagOneShape(column:startingColumn, row:startingRow)
+            return JShape(column:startingColumn, row:startingRow)
         case 5:
-            return LTwoShape(column:startingColumn, row:startingRow)
+            return SShape(column:startingColumn, row:startingRow)
         default:
-            return ZigZagTwoShape(column:startingColumn, row:startingRow)
+            return ZShape(column:startingColumn, row:startingRow)
         }
     }
 }
@@ -165,3 +165,4 @@ class Shape: Hashable, Printable {
 func ==(lhs: Shape, rhs: Shape) -> Bool {
     return lhs.row == rhs.row && lhs.column == rhs.column
 }
+

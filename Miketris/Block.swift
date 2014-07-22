@@ -32,7 +32,7 @@ enum BlockColor: Int, Printable {
     }
     
     var description: String {
-    return self.spriteName
+        return self.spriteName
     }
     
     static func random() -> BlockColor {

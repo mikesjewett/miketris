@@ -11,6 +11,9 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var scene:GameScene!
+    var swiftris:Swiftris!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,9 +22,6 @@ class GameViewController: UIViewController {
         skView.multipleTouchEnabled = false
         
         // Create and configure the scene.
-        var scene: GameScene!
-        var swiftris:Swiftris!
-        
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
